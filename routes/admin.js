@@ -9,7 +9,7 @@ const { SECRET } = require("../config");
 const auth = require("../middlewares/auth");
 const GeoJSON = require('geojson');
 const Admin = require("../models/admin");
-const checkRole = require("../utils/checkrole");
+//const checkRole = require("../utils/checkrole");
 
 router.get("/alladmins",auth,(req,res)=>{
 	Admin.find().then(result=>{
