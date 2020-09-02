@@ -540,6 +540,390 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "list of users for admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\": \"lalitha\",\r\n          \"email\":\"lalithasomineni@gmail.com\",\r\n          \"phoneNumber\": 6281497028, \r\n          \"password\": \"lalitha\",\r\n         \"geometry\": {\"coordinates\":[12,17.257663656]}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/allusers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"allusers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list of admins for admin",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\": \"lalitha\",\r\n          \"email\":\"lalithasomineni@gmail.com\",\r\n          \"phoneNumber\": 6281497028, \r\n          \"password\": \"lalitha\",\r\n         \"geometry\": {\"coordinates\":[12,17.257663656]}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/alladmins",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"alladmins"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\": \"lalitha\",\r\n          \"email\":\"lalithasomineni@gmail.com\",\r\n          \"phoneNumber\": 6281497028, \r\n          \"password\": \"lalitha\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/registeradmin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"registeradmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login as admin",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\": \"lalitha\",\r\n          \"email\":\"lalithasomineni@gmail.com\",\r\n          \"phoneNumber\": 6281497028, \r\n          \"password\": \"lalitha\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/loginadmin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"loginadmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update admin data",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n     \"propName\":\"username\",\"value\": \"lalli\"\r\n          \r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/5f4fa08d30cfa278123df663",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						"5f4fa08d30cfa278123df663"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete any store for admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n     \"propName\":\"username\",\"value\": \"lalli\"\r\n          \r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/:shopId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						":shopId"
+					],
+					"variable": [
+						{
+							"key": "shopId",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete any customer for admin",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n     \"propName\":\"username\",\"value\": \"lalli\"\r\n          \r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/admin/:customerid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"admin",
+						":customerid"
+					],
+					"variable": [
+						{
+							"key": "customerid",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register a  laundry store",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "x laundry services",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "xlaundry@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phoneNumber",
+							"value": "745768237674",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "xlaundry",
+							"type": "text"
+						},
+						{
+							"key": "OpeningTime",
+							"value": "9am",
+							"type": "text"
+						},
+						{
+							"key": "ClosingTime",
+							"value": "6pm",
+							"type": "text"
+						},
+						{
+							"key": "[geometry][coordinates]",
+							"value": "[12,40]",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/home/my/Pictures/b.png"
+						},
+						{
+							"key": "price",
+							"value": "120 per kg",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "khammam,india",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/shops/registershop",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops",
+						"registershop"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
