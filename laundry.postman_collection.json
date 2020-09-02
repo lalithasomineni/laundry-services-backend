@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "5afac040-f00c-4d29-b928-c50428c1aa10",
+		"name": "laundry",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "register a user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\": \"lalitha\",\r\n          \"email\":\"lalithasomineni@gmail.com\",\r\n          \"phoneNumber\": 6281497028, \r\n          \"password\": \"lalitha\",\r\n         \"geometry\": {\"coordinates\":[12,17.257663656]}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/registercustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"registercustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login a user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"phoneNumber\": 6281497028, \r\n          \"password\": \"lalitha\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/logincustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"logincustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get the list of shops",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxhbGl0aGFzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNmIzYTIyZjUzZDU3MDY4YTMzZTciLCJpYXQiOjE1OTkwNDA1MjIsImV4cCI6MTU5OTY0NTMyMn0.azIIPIRApXU152q-2fPyHy39LejrBML90cm1IsGEIwU",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/allshops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"allshops"
+					]
+				},
+				"description": "no authentication involved"
+			},
+			"response": []
+		},
+		{
+			"name": "get near by laundry stores",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"chinese restaurant\",\r\n\"description\":\"good food\",\r\n\"rating\": 3,\r\n\"geometry\":{\"type\":\"Point\",\"coordinates\":[40,26.78]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/nearbyshops/?lng=50&lat=36",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"nearbyshops",
+						""
+					],
+					"query": [
+						{
+							"key": "lng",
+							"value": "50"
+						},
+						{
+							"key": "lat",
+							"value": "36"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register a  laundry store",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \t      \"name\": \"laundry\",\r\n\t \t  \"email\":\"laundry@gmail.com\",\r\n          \"phoneNumber\": 23574878, \r\n          \"password\":\"laundry\",\r\n           \"OpeningTime\":\"9:30\",\r\n         \"ClosingTime\": \"4pm\",\r\n          \"geometry\":{\"type\":\"Point\",\"coordinates\":[40,26.78]}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/shops/registershop",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops",
+						"registershop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login a  laundry store",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"phoneNumber\": 23574878, \r\n          \"password\":\"laundry\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/shops/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get the list of laundry stores ",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxhdW5kcnlAZ21haWwuY29tIiwic2hvcElkIjoiNWY0ZjcxMWQzYTM0YWU1YTVlZmJhYTI4IiwiaWF0IjoxNTk5MDQxOTE1LCJleHAiOjE1OTk2NDY3MTV9.Ko9CmyzjSJwEbRQVJY9JxDSRoVklgKAcwhUs487wA7Q",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"phoneNumber\": 23574878, \r\n          \"password\":\"laundry\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/shops/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops",
+						""
+					]
+				},
+				"description": "for stores"
+			},
+			"response": []
+		},
+		{
+			"name": "get  laundry stores by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxhdW5kcnlAZ21haWwuY29tIiwic2hvcElkIjoiNWY0ZjcxMWQzYTM0YWU1YTVlZmJhYTI4IiwiaWF0IjoxNTk5MDQxOTE1LCJleHAiOjE1OTk2NDY3MTV9.Ko9CmyzjSJwEbRQVJY9JxDSRoVklgKAcwhUs487wA7Q",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n          \"phoneNumber\": 23574878, \r\n          \"password\":\"laundry\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/shops/5f4f711d3a34ae5a5efbaa28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops",
+						"5f4f711d3a34ae5a5efbaa28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update laundry stores data",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxhdW5kcnlAZ21haWwuY29tIiwic2hvcElkIjoiNWY0ZjcxMWQzYTM0YWU1YTVlZmJhYTI4IiwiaWF0IjoxNTk5MDQxOTE1LCJleHAiOjE1OTk2NDY3MTV9.Ko9CmyzjSJwEbRQVJY9JxDSRoVklgKAcwhUs487wA7Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n          \"propName\":\"phoneNumber\",\"value\":1234567\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/shops/5f4f711d3a34ae5a5efbaa28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops",
+						"5f4f711d3a34ae5a5efbaa28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete laundry store",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImxhdW5kcnlAZ21haWwuY29tIiwic2hvcElkIjoiNWY0ZjcxMWQzYTM0YWU1YTVlZmJhYTI4IiwiaWF0IjoxNTk5MDQxOTE1LCJleHAiOjE1OTk2NDY3MTV9.Ko9CmyzjSJwEbRQVJY9JxDSRoVklgKAcwhUs487wA7Q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n          \"propName\":\"phoneNumber\",\"value\":1234567\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/shops/5f4f711d3a34ae5a5efbaa28",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"shops",
+						"5f4f711d3a34ae5a5efbaa28"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
