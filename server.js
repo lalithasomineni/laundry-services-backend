@@ -3,7 +3,7 @@ const app = express();
 const port = 3000;
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
- const mongodburl = "mongodb://localhost/ecommerce";
+ const mongodburl = "mongodb://localhost/capstone";
 
 mongoose
   .connect(mongodburl)
