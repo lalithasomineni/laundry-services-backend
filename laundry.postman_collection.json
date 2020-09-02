@@ -6,86 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "register a user",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "authorization",
-						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n     \"username\": \"lalitha\",\r\n          \"email\":\"lalithasomineni@gmail.com\",\r\n          \"phoneNumber\": 6281497028, \r\n          \"password\": \"lalitha\",\r\n         \"geometry\": {\"coordinates\":[12,17.257663656]}\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/user/registercustomer",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"user",
-						"registercustomer"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "login a user",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "authorization",
-						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n          \"phoneNumber\": 6281497028, \r\n          \"password\": \"lalitha\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/user/logincustomer",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"user",
-						"logincustomer"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "get the list of shops",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -339,7 +259,7 @@
 			"response": []
 		},
 		{
-			"name": "update laundry stores data",
+			"name": "update my laundry store data",
 			"request": {
 				"method": "PATCH",
 				"header": [
@@ -379,7 +299,7 @@
 			"response": []
 		},
 		{
-			"name": "delete laundry store",
+			"name": "delete my laundry store",
 			"request": {
 				"method": "DELETE",
 				"header": [
@@ -413,6 +333,209 @@
 					"path": [
 						"shops",
 						"5f4f711d3a34ae5a5efbaa28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login a user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"phoneNumber\":9704765616,\"password\":\"lalitha\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/logincustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"logincustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register a user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\": \"lata\",\r\n          \"email\":\"latasomineni@gmail.com\",\r\n          \"phoneNumber\": 6281497028, \r\n          \"password\": \"lalitha\",\r\n         \"geometry\": {\"coordinates\":[12,17.257663656]}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/registercustomer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"registercustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get my profile",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"username\": \"lata\",\r\n          \"email\":\"latasomineni@gmail.com\",\r\n          \"phoneNumber\": 6281497028, \r\n          \"password\": \"lalitha\",\r\n         \"geometry\": {\"coordinates\":[12,17.257663656]}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/5f4f84d0c58a18679965a5c1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"5f4f84d0c58a18679965a5c1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update my profile",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n     {\"propName\":\"password\",\"value\":\"lata\"}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/5f4f84d0c58a18679965a5c1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"5f4f84d0c58a18679965a5c1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete my profile",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "authorization",
+						"value": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imxzb21pbmVuaUBnbWFpbC5jb20iLCJ1c2VySWQiOiI1ZjRmNTdiZDBhMTcwNTQ4ZjYwZmE3ODUiLCJpYXQiOjE1OTkwMzYzNDQsImV4cCI6MTU5OTY0MTE0NH0.t1GVykXjNGi-FS-FUA0xMxcWd-M7_jeloH2auQGaT2s",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n     {\"propName\":\"password\",\"value\":\"lata\"}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/user/5f4f84d0c58a18679965a5c1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"user",
+						"5f4f84d0c58a18679965a5c1"
 					]
 				}
 			},

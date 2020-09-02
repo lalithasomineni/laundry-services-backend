@@ -82,13 +82,6 @@ router.post("/login", (req, res, next) => {
     });
 });
 
-router.get('/allshops',(req,res)=>{
-  Shop.find().then(result=>{
-    res.send(result);
-  }).catch(err=>{
-    res.json(err);
-  })
-})
 
 router.get("/:id", (req, res) => {
   const id = req.params.id;
@@ -99,9 +92,11 @@ router.get("/:id", (req, res) => {
    })
 });
 
-router.patch("/:shopId",auth, (req, res, next) => {
-  const id = req.params.shopId;
-  const updateOps = {};
+router.patch("/:myid",auth, (req, res, next) => {
+  const id = req.params.myid;
+  const shop = Shop.findById({_id:id});
+  if(req.shop = id){
+         const updateOps = {};
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
@@ -119,10 +114,20 @@ router.patch("/:shopId",auth, (req, res, next) => {
         error: err
       });
     });
+        
+  }
+  else{
+   
+   res.json("permission denied");
+ 
+  }
 });
 
 
-router.delete("/:id",auth,(req,res)=>{
+router.delete("/:myid",auth,(req,res)=>{
+    const id = req.params.yourid;
+  const shop = Shop.findById({_id:id});
+  if(req.shop = id){
    Shop.remove({id:req.body.id}).then(result=>{
    	 res.json({
    	 	status: "deleted succesfully",
@@ -131,6 +136,10 @@ router.delete("/:id",auth,(req,res)=>{
    }).catch(err=>{
    	res.json(err);
    })
+ }
+ else{
+  res.json("permission denied");
+ }
 })
 
 

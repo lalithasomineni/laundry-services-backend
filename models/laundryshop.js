@@ -16,15 +16,20 @@ const GeoSchema = new Schema({
 const shopSchema = new Schema({
   name: {
     type: String,
-    required: [true, "Name field is required"],
+    required: true,
+    unique: true
   },
   email:{
     type: String,
-    required: true
+    required: true,
+    unique: true,
+    match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
   },
   phoneNumber: {
     type: Number,
-    required: [true, "Phone number is required"],
+    required: true,
+    unique: true,
+    match: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/
   },
   password: {
      type: String,

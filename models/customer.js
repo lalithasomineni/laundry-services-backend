@@ -23,17 +23,22 @@ const userSchema = new Schema({
   },
   email:{
     type: String,
-    required: true
+    required: true,
+    unique: true,
+    match: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
   },
   phoneNumber: {
     type: Number,
-    required: [true, "Phone number is required"],
+    required: true,
+    match: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
+    unique: true
   },
   password: {
      type: String,
      required: true,
   },
-  geometry: GeoSchema,
+  geometry: GeoSchema
+
   })
 
    const Customer = mongoose.model("Customer", userSchema);

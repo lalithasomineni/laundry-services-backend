@@ -9,7 +9,21 @@ const { SECRET } = require("../config");
 const auth = require("../middlewares/auth");
 var GeoJSON = require('geojson');
 
-
+router.get("/:myid",auth, (req, res) => {
+    const id = req.params.myid;
+  const customer = Customer.findById({_id:id});
+  if(req.customer = id){
+  const id = req.params.myid;
+   Customer.findById({_id:id}).then(result=>{
+    res.send(result);
+   }).catch(err=>{
+    res.send(err);
+   })
+ }
+ else{
+  res.json("permission denied");
+ }
+});
 
 router.post("/registercustomer",async(req,res)=>{
  let newCustomer = new Customer({
@@ -30,7 +44,7 @@ router.post("/registercustomer",async(req,res)=>{
 
  });
 
-router.post("/logincustomer", (req, res, next) => {
+router.post("/logincustomer", (req, res) => {
   Customer.find({ phoneNumber: req.body.phoneNumber })
     .exec()
     .then(user => {
@@ -94,5 +108,55 @@ router.get('/nearbyshops', function(req, res, next){
      spherical: true, maxDistance: 100, distanceField: "dist.calculated" } }])
     .then(function(results){ res.send(results); }).catch(err=>{res.send(err)});
 });
+
+router.patch("/:myid",auth, (req, res, next) => {
+  const id = req.params.myid;
+  const customer = Customer.findById({_id:id});
+  if(req.customer = id){
+         const updateOps = {};
+  for (const ops of req.body) {
+    updateOps[ops.propName] = ops.value;
+  }
+  Customer.update({ _id: id }, { $set: updateOps })
+    .exec()
+    .then(result => {
+      res.status(200).json({
+          message: 'updated',
+          result:result
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+        
+  }
+  else{
+   
+   res.json("permission denied");
+ 
+  }
+});
+
+router.delete("/:myid",auth,(req,res)=>{
+    const id = req.params.myid;
+  const customer = Customer.findById({_id:id});
+  if(req.customer = id){
+   Customer.remove({id:req.params._id}).then(result=>{
+     res.json({
+      status: "deleted succesfully",
+      result:result
+     })
+   }).catch(err=>{
+    res.json(err);
+   })
+ }
+ else{
+  res.json("permission denied");
+ }
+})
+
 
 module.exports = router;
