@@ -43,11 +43,24 @@ const shopSchema = new Schema({
       type: String,
     required: [true, "timing is required"],
   },
-  role:{
+  image:{
+    type: String,
+    required: true
+  },
+  price:{
+    type: String,
+    required: true
+  },
+  geometry: GeoSchema,
+   role:{
     type: String,
     default: "store"
   },
-  geometry: GeoSchema,
+  address:{
+    type: String,
+    required: true,
+    unique: true
+  }
 });
 
 const Shop = mongoose.model("Shop", shopSchema);
