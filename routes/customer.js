@@ -7,6 +7,7 @@ const Shop = require("../models/laundryshop");
 const jwt = require("jsonwebtoken");
 const { SECRET } = require("../config");
 const auth = require("../middlewares/auth");
+var GeoJSON = require('geojson');
 
 
 
@@ -29,38 +30,51 @@ router.post("/registercustomer",async(req,res)=>{
 
  });
 
-router.post("/logincustomer",(req,res)=>{
-  const customer =  Customer.findOne({username:req.body.username});
-  if(!customer){
-    return res.status(404).json("error");
-  }
-  let isMatch =  bcrypt.compare(req.body.password,customer.password);
-  if(isMatch){
-    let token = jwt.sign(
-       {
-        customer_id: customer._id,
-        username: customer.username,
-        email: customer.email,
-        phoneNumber: customer.phoneNumber,
-        geometry: customer.geometry
-      },
-      SECRET,
-      { expiresIn: "7 days" }
-    );
-     let result = {
-      username: customer.username,
-      email: customer.email,
-      token: `bearer ${token}`,
-      expiresIn: 168
-    };
-    return res.status(200).send(result);
-  }
-  else{
-    res.send("login failed");
-  }
-})
+router.post("/logincustomer", (req, res, next) => {
+  Customer.find({ phoneNumber: req.body.phoneNumber })
+    .exec()
+    .then(user => {
+      if (user.length < 1) {
+        return res.status(401).json({
+          message: "Auth failed"
+        });
+      }
+      bcrypt.compare(req.body.password, user[0].password, (err, result) => {
+        if (err) {
+          return res.status(401).json({
+            message: "Auth failed"
+          });
+        }
+        if (result) {
+          const token = jwt.sign(
+            {
+              email: user[0].email,
+              userId: user[0]._id
+            },
+            process.env.APP_SECRET,
+            {
+                expiresIn: "7 days"
+            }
+          );
+          return res.status(200).json({
+            message: "Auth successful",
+            token: token
+          });
+        }
+        res.status(401).json({
+          message: "Auth failed"
+        });
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+});
 
-router.get('/allshops',[auth],(req,res)=>{
+router.get('/allshops',(req,res)=>{
   Shop.find().then(result=>{
     res.send(result);
   }).catch(err=>{
@@ -68,14 +82,17 @@ router.get('/allshops',[auth],(req,res)=>{
   })
 })
 
-router.get('/nearbyshops', (req, res)=>{
-   Shop.geoNear(
+router.get('/nearbyshops', function(req, res, next){
+
+    /*Shop.aggregate(
         {type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
-        {maxDistance: 100, spherical: true}
-    ).then(result=>{
+        {maxDistance: 100000, spherical: true}
+    ).then(function(result){
         res.send(result);
-    }).catch(err=>{
-      res.send(err);
-    });
+    }).catch(next);*/
+    Shop.aggregate([{ $geoNear: { near: {type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
+     spherical: true, maxDistance: 100, distanceField: "dist.calculated" } }])
+    .then(function(results){ res.send(results); }).catch(err=>{res.send(err)});
 });
+
 module.exports = router;
