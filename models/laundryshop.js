@@ -43,6 +43,10 @@ const shopSchema = new Schema({
       type: String,
     required: [true, "timing is required"],
   },
+  role:{
+    type: String,
+    default: "store"
+  },
   geometry: GeoSchema,
 });
 

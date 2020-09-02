@@ -1,21 +1,8 @@
-
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-
-const GeoSchema = new Schema({
-  type: {
-    type: String,
-    default: "Point",
-  },
-  coordinates: {
-    type: [Number],
-    index: "2dsphere",
-  },
-});
-
-const userSchema = new Schema({
+const adminSchema = new Schema({
   username: {
     type: String,
     required: [true, "Name field is required"],
@@ -39,11 +26,9 @@ const userSchema = new Schema({
   },
   role: {
     type: String,
-    default: "user"
-  },
-  geometry: GeoSchema
-
+    default: "admin"
+  }
   })
 
-   const Customer = mongoose.model("Customer", userSchema);
-  module.exports = Customer;
+   const Admin = mongoose.model("Admin", adminSchema);
+  module.exports = Admin;
