@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -11,6 +12,9 @@ mongoose
   .catch((err) => console.error(err));
 
 app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({
+  extended: true
+}));
 app.use("/shops",require("./routes/laundryshop"));
 app.use("/user",require("./routes/customer"));
 app.listen(port,()=>{

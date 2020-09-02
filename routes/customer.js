@@ -2,10 +2,12 @@ const express = require("express");
 const router = express.Router();
 const Customer = require("../models/customer");
 const bcrypt = require("bcrypt");
-const auth = require("../middlewares/auth");
 const mongoose = require("mongoose");
 const Shop = require("../models/laundryshop");
-//const salt =  bcrypt.genSalt(14)
+const jwt = require("jsonwebtoken");
+const { SECRET } = require("../config");
+const auth = require("../middlewares/auth");
+
 
 
 router.post("/registercustomer",async(req,res)=>{
@@ -25,12 +27,40 @@ router.post("/registercustomer",async(req,res)=>{
       res.json(err);
      })
 
- })
+ });
 
-//******login route using jwt
+router.post("/logincustomer",(req,res)=>{
+  const customer =  Customer.findOne({username:req.body.username});
+  if(!customer){
+    return res.status(404).json("error");
+  }
+  let isMatch =  bcrypt.compare(req.body.password,customer.password);
+  if(isMatch){
+    let token = jwt.sign(
+       {
+        customer_id: customer._id,
+        username: customer.username,
+        email: customer.email,
+        phoneNumber: customer.phoneNumber,
+        geometry: customer.geometry
+      },
+      SECRET,
+      { expiresIn: "7 days" }
+    );
+     let result = {
+      username: customer.username,
+      email: customer.email,
+      token: `bearer ${token}`,
+      expiresIn: 168
+    };
+    return res.status(200).send(result);
+  }
+  else{
+    res.send("login failed");
+  }
+})
 
-
-router.get('/allshops',(req,res)=>{
+router.get('/allshops',[auth],(req,res)=>{
   Shop.find().then(result=>{
     res.send(result);
   }).catch(err=>{

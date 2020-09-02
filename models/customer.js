@@ -1,3 +1,4 @@
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -18,6 +19,7 @@ const userSchema = new Schema({
   username: {
     type: String,
     required: [true, "Name field is required"],
+    unique: true
   },
   email:{
     type: String,
@@ -31,8 +33,8 @@ const userSchema = new Schema({
      type: String,
      required: true,
   },
-  geometry: GeoSchema
-  });
+  geometry: GeoSchema,
+  })
 
    const Customer = mongoose.model("Customer", userSchema);
   module.exports = Customer;
