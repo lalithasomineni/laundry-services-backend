@@ -22,6 +22,7 @@ app.use(bodyparser.urlencoded({
 app.use("/shops",require("./routes/laundryshop"));
 app.use("/user",require("./routes/customer"));
 app.use("/admin",require("./routes/admin"));
+app.use("/book",require("./routes/pickup"));
 app.listen(port,()=>{
 	console.log(`server running on port ${port}`);
 })

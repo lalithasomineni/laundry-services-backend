@@ -129,7 +129,7 @@ router.patch("/:myid",auth, (req, res, next) => {
 
 
 router.delete("/:myid",auth,(req,res)=>{
-    const id = req.params.yourid;
+    const id = req.params.myid;
   const shop = Shop.findById({_id:id});
   if(req.shop = id){
    Shop.remove({id:req.body.id}).then(result=>{
