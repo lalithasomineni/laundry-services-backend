@@ -37,17 +37,17 @@ const shopSchema = new Schema({
   },
   OpeningTime: {
     type: String,
-    required: [true, "timing is required"],
+    required: true,
   },
   ClosingTime: {
       type: String,
-    required: [true, "timing is required"],
+    required: true,
   },
-  image:{
+  price:{
     type: String,
     required: true
   },
-  price:{
+  image:{
     type: String,
     required: true
   },

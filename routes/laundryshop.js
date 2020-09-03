@@ -5,19 +5,9 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const auth = require("../middlewares/auth");
-const multer = require("multer");
+//const multer = require("multer");
 //const salt =  bcrypt.genSalt(14)
 
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './uploads/')
-  },
-  filename: function (req, file, cb) {
-    cb(null,new Date().toISOString()+file.originalname);
-  }
-})
-
-const upload = multer({ storage: storage })
 
 router.get("/",(req,res)=>{
   Shop.find().then(result=>{
@@ -27,30 +17,29 @@ router.get("/",(req,res)=>{
   })
 })
 
-
-router.post("/registershop",upload.single('image'),async(req,res)=>{
-	 let newShop = new Shop({
-	 	name: req.body.name,
-	 	  email:req.body.email,
+router.post("/registershop",async(req,res)=>{
+   let newShop = new Shop({
+          name: req.body.name,
+          email:req.body.email,
           phoneNumber: req.body.phoneNumber, 
           password:req.body.password,
-          image: './'+ req.file.path,
           address: req.body.address,
           price: req.body.price,
            OpeningTime:req.body.OpeningTime,
          ClosingTime: req.body.ClosingTime,
          geometry: req.body.geometry
-  	 })
+     })
   const salt = await bcrypt.genSalt(14)
     newShop.password = await bcrypt.hash(newShop.password,salt);
     newShop = await newShop.save()
-  	 newShop.save().then(result=>{
+     newShop.save().then(result=>{
          res.json(result);
-  	 }).catch(err=>{
-  	 	res.json(err);
-  	 })
+     }).catch(err=>{
+      res.json(err);
+     })
 
  });   
+ 
 
 
 router.post("/login", (req, res, next) => {
