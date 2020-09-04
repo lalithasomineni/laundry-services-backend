@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require("express");
-const logger = require("morgan");
 const app = express();
 const port = process.env.port||3000;
 const bodyparser = require("body-parser");
@@ -13,8 +12,6 @@ mongoose
   .catch((err) => console.error(err));
 
 
-
-app.use(logger('dev'));
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({
   extended: false
