@@ -4,7 +4,7 @@ const app = express();
 const port = process.env.port||3000;
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
- const mongodburl = "mongodb://localhost/capstone";
+ const mongodburl = process.env.mongodburl||"mongodb://localhost/capstone";
 
 mongoose
   .connect(mongodburl)
