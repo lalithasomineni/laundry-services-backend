@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require("express");
 const logger = require("morgan");
 const app = express();
-const port = 3000;
+const port = process.env.port||3000;
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
  const mongodburl = "mongodb://localhost/capstone";
