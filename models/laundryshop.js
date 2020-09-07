@@ -47,10 +47,6 @@ const shopSchema = new Schema({
     type: String,
     required: true
   },
-  image:{
-    type: String,
-    required: true
-  },
   geometry: GeoSchema,
    role:{
     type: String,
